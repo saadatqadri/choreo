@@ -1,0 +1,25 @@
+{% load staticfiles %}
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{% static "bootstrap/dist/css/bootstrap.css" %}">
+</head>
+<body ng-app="{% block ng-app %}choreo.app.static{% endblock %}">
+<div class="content" ng-controller="{% block ng_controller %}AppController{% endblock %}">
+{% block content %}
+{% verbatim %}
+	<div class="panel" ng-repeat="change in changes">
+		<div class="panel-heading clearfix">
+			<h3 class="panel-title">{{ change.title }}</h3>
+		</div>
+		<p class="well">{{ change.description }}</p>
+	</div>
+{% endverbatim %}
+{% endblock %}
+</div>
+<script src="{% static 'underscore/underscore.js' %}"></script>
+<script src="{% static 'angular/angular.js' %}"></script>
+<script src="{% static 'angular-resource/angular-resource.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
