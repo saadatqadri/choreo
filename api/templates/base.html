@@ -4,22 +4,27 @@
 <head>
 <link rel="stylesheet" type="text/css" href="{% static "bootstrap/dist/css/bootstrap.css" %}">
 </head>
-<body ng-app="{% block ng-app %}choreo.app.static{% endblock %}">
-<div class="content" ng-controller="{% block ng_controller %}AppController{% endblock %}">
-{% block content %}
-{% verbatim %}
-	<div class="panel" ng-repeat="change in changes">
-		<div class="panel-heading clearfix">
-			<h3 class="panel-title">{{ change.title }}</h3>
+<body ng-app="{% block ng_app %}choreo.app.static{% endblock %}">
+	<div class="container">
+		<div class="content ng-cloak" ng-controller="{% block ng_controller %}AppController{% endblock %}">
+		{% block content %}
+		    <div class="panel" ng-repeat="change in changes track by $index">
+		        <div class="panel-heading clearfix">
+			        {% block change_header %}
+			            {% verbatim %}
+			            <h3 class="panel-title">{{ change.title }} <small>{{ change.description }}</small></h3>
+			            {% endverbatim %}
+			        {% endblock %}
+		        </div>
+		    </div>
+		{% endblock %}
 		</div>
-		<p class="well">{{ change.description }}</p>
 	</div>
-{% endverbatim %}
+{% block js %}
+<script src="{% static "underscore/underscore.js" %}"></script>
+<script src="{% static "angular/angular.js" %}"></script>
+<script src="{% static "angular-resource/angular-resource.js" %}"></script>
+<script src="{% static "js/script.js" %}"></script>
 {% endblock %}
-</div>
-<script src="{% static 'underscore/underscore.js' %}"></script>
-<script src="{% static 'angular/angular.js' %}"></script>
-<script src="{% static 'angular-resource/angular-resource.js' %}"></script>
-<script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>
