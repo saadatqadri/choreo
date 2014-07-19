@@ -1,11 +1,26 @@
-<h1>Add Projects</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if project.id %}
+<h1>Edit Project</h1>
+{% else %}
+<h1>Add Project</h1>
+{% endif %}
 
 
-<form action="{% url "project-new" %}" method="POST">
+<form action="{{ action }}" method="POST">
 	{% csrf_token %}
 	<ul>
 		{{ form.as_ul }}
 	</ul>
 	<input id="save_project" type="submit" value="Save"/>
 </form>
+
+{% if project.id %}
+	<a href="{% url 'project-delete' pk=project.id %}">Delete</a>
+{% endif %}
+
 <a href="{% url 'project-list' %}">Back to Projects</a>
+
+{% endblock %}

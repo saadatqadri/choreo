@@ -1,4 +1,7 @@
-<h1>Project: {{ project.name }}</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="project">Project: {{ project.name }}</h1>
 
 <h2>Project description</h2>
 <p>Write project description here.</p>
@@ -9,3 +12,5 @@
 	<li>{{ plan.name }}</li>
 {% endfor %}
 </ul>
+
+{% endblock %}

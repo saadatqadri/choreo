@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <h1>Test Plans</h1>
 
 <ul>
@@ -5,3 +8,5 @@
 		<li class="plan"><a href="{{ plan.get_absolute_url }}">{{ plan.name }}</a></li>
 	{% endfor %}
 </ul>
+
+{% endblock %}

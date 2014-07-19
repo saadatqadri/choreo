@@ -3,6 +3,7 @@
 
 # Project model: num_test_runs, assigned_to_user, test_runs_in_progress, test_plans, recent_activity
 
+# runs should have a foreignkey relationship with Suite not Plan
 
 # write tests steps in markdown
 
