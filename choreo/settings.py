@@ -111,6 +111,7 @@ ROOT_URLCONF = 'choreo.urls'
 WSGI_APPLICATION = 'choreo.wsgi.application'
 
 TEMPLATE_DIRS = (
+    '/wrench/templates',
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -128,6 +129,7 @@ INSTALLED_APPS = (
     'manageconfig',
     'south',
     'api',
+    'wrench',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:

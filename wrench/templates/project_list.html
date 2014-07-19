@@ -1,0 +1,7 @@
+<h1>Projects</h1>
+
+<ul>
+	{% for project in object_list %}
+		<li class="project"><a href="{{ project.get_absolute_url }}">{{ project.name }}</a></li>
+	{% endfor %}
+</ul>

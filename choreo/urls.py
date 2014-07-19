@@ -24,7 +24,7 @@ class SimpleStaticView(TemplateView):
 
 
 urlpatterns = patterns('',
-	#url(r'^', include('changecal.urls')),
+	url(r'^', include('wrench.urls')),
 	#url(r'^api-auth/', include('rest_framework.urls', namespace="rest_framework")),
     # Examples:
     # url(r'^$', 'choreo.views.home', name='home'),

@@ -1,0 +1,11 @@
+<h1>Project: {{ project.name }}</h1>
+
+<h2>Project description</h2>
+<p>Write project description here.</p>
+
+<h2>Test plans</h2>
+<ul>
+{% for plan in project.plan_set.all %}
+	<li>{{ plan.name }}</li>
+{% endfor %}
+</ul>

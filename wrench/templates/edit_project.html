@@ -1,0 +1,11 @@
+<h1>Add Projects</h1>
+
+
+<form action="{% url "project-new" %}" method="POST">
+	{% csrf_token %}
+	<ul>
+		{{ form.as_ul }}
+	</ul>
+	<input id="save_project" type="submit" value="Save"/>
+</form>
+<a href="{% url 'project-list' %}">Back to Projects</a>
