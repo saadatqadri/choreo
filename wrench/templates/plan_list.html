@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+<h1>Project: {{ project.name }}</h1>
+
+
 <h1>Test Plans</h1>
 
 <ul>
-	{% for plan in object_list %}
+	{% for plan in object_list %}	
 		<li class="plan"><a href="{{ plan.get_absolute_url }}">{{ plan.name }}</a></li>
 	{% endfor %}
 </ul>
+
+<a class="btn btn-primary" href="{% url 'plan-new' pk=project.id %}">Add New Plan</a>
 
 {% endblock %}

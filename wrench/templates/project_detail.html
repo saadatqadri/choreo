@@ -4,13 +4,23 @@
 <h1 class="project">Project: {{ project.name }}</h1>
 
 <h2>Project description</h2>
-<p>Write project description here.</p>
+<p>{{ project.description }}</p>
 
-<h2>Test plans</h2>
+<h2>Test Plans</h2>
 <ul>
 {% for plan in project.plan_set.all %}
-	<li>{{ plan.name }}</li>
+	<li><a href="{{ plan.get_absolute_url }}">{{ plan.name }}</a></li>
 {% endfor %}
 </ul>
 
+<a class="btn btn-primary" href="{% url 'plan-new' pk=project.id %}">Add Test Plan</a>
+
+<h2>Test Suites</h2>
+<ul>
+{% for suite in project.suite_set.all %}
+	<li><a href="{{ suite.get_absolute_url }}">{{ suite.name }}</a></li>
+{% endfor %}
+</ul>
+
+<a class="btn btn-primary" href="{% url 'suite-new' pk=project.id %}">Add Test Suite</a>
 {% endblock %}

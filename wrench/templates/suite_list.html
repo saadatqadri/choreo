@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Test Suites</h1>
+
+<ul>
+	{% for suite in object_list %}
+		<li class="suite"><a href="{{ suite.get_absolute_url }}">{{ suite.name }}</a></li>
+	{% endfor %}
+</ul>
+
+{% endblock %}

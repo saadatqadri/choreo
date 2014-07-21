@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if case.id %}
+<h1>Edit Case</h1>
+{% else %}
+<h1>Add Case</h1>
+{% endif %}
+
+
+<form action="{{ action }}" method="POST">
+	{% csrf_token %}
+	<ul>
+		{{ form.as_ul }}
+	</ul>
+	<input id="save_case" type="submit" value="Save"/>
+</form>
+	
+{% if case.id %}
+	<a href="#">Delete</a>
+{% endif %}
+
+<a href="{% url 'project-suite-case-list' %}">Back to Cases</a>
+
+{% endblock %}

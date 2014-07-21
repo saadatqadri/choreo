@@ -16,9 +16,9 @@
 	</ul>
 	<input id="save_project" type="submit" value="Save"/>
 </form>
-
+	
 {% if project.id %}
-	<a href="{% url 'project-delete' pk=project.id %}">Delete</a>
+	<a class="btn btn-primary" href="{% url 'project-delete' pk=project.id %}">Delete</a>
 {% endif %}
 
 <a href="{% url 'project-list' %}">Back to Projects</a>
