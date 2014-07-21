@@ -31,9 +31,19 @@ class ListProjectPlanView(ListView):
 
 
 class ListProjectSuiteView(ListView):
-    model = Suite
+
     template_name = "suite_list.html"
 
+    def get_queryset(self):
+        self.project = get_object_or_404(Project, pk=self.kwargs['pk'])
+        return Suite.objects.filter(project=self.project)
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(ListProjectSuiteView, self).get_context_data(**kwargs)
+        # Add in the project
+        context['project'] = self.project
+        return context
 
 class ListProjectSuiteCaseView(ListView):
     model = Case
@@ -105,6 +115,7 @@ class CreateCaseView(CreateView):
     model = Case
     template_name="edit_case.html"
     
+    '''
     def get_context_data(self, **kwargs):
         #project = Project.objects.get(pk=self.kwargs['pk_proj'])
         #suite = Suite.objects.get(pk=self.kwargs['pk_suite'])
@@ -112,7 +123,7 @@ class CreateCaseView(CreateView):
         context = super(CreateCaseView, self).get_context_data(**kwargs)
         context['action'] = reverse('case-new', kwargs={'pk': self.get_object().id})
  
-        return context
+        return context'''
     
 # UpdateViews
 

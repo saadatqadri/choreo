@@ -17,7 +17,6 @@ urlpatterns = patterns('',
 	url(r'^projects/(?P<pk_proj>\d+)/suites/(?P<pk_suite>\d+)/cases/new$', wrench.views.CreateCaseView.as_view(), name='case-new',),
 	url(r'^projects/(?P<pk>\d+)/edit$', wrench.views.UpdateProjectView.as_view(), name='project-edit',),
 	url(r'^projects/(?P<pk>\d+)/delete$', wrench.views.DeleteProjectView.as_view(), name='project-delete',),
-	#url(r'^projects/(?P<pk>\d+)/plans/new$', wrench.views.CreateProjectPlanView.as_view(), name='project-plan-new',),
 	#url(r'^$', wrench.views.ListSuiteView.as_view(), name='suite-list',),
 	#url(r'^$/case', wrench.views.ListCaseView.as_view(), name='project-list',),
 )

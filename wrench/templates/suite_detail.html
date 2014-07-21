@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 class="project">Suite: {{ suite.name }}</h1>
+<h1 class="suite">Suite: {{ suite.name }}</h1>
 
 
 <h2>Test Cases</h2>
@@ -10,5 +10,7 @@
 	<li><a href="{{ case.get_absolute_url }}">{{ case.title }}</a></li>
 {% endfor %}
 </ul>
+
+<a class="btn btn-primary" href="{% url 'case-new' pk_proj=suite.project.id pk_suite=suite.id %}">Add Test Case</a>
 
 {% endblock %}
